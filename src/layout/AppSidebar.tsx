@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState,useCallback } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -28,40 +28,34 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   {
-    icon: <></>,
-    // icon: <GridIcon />,
+    icon: <GridIcon />,
     name: "Dashboard",
     subItems: [{ name: "Ecommerce", path: "/", pro: false }],
   },
   {
-    icon: <></>,
-    // icon: <CalenderIcon />,
+    icon: <CalenderIcon />,
     name: "Calendar",
     path: "/calendar",
   },
   {
-    icon: <></>,
-    // icon: <UserCircleIcon />,
+    icon: <UserCircleIcon />,
     name: "User Profile",
     path: "/profile",
   },
 
   {
     name: "Forms",
-    icon: <></>,
-    // icon: <ListIcon />,
+    icon: <ListIcon />,
     subItems: [{ name: "Form Elements", path: "/form-elements", pro: false }],
   },
   {
     name: "Tables",
-    icon: <></>,
-    // icon: <TableIcon />,
+    icon: <TableIcon />,
     subItems: [{ name: "Basic Tables", path: "/basic-tables", pro: false }],
   },
   {
     name: "Pages",
-    icon: <></>,
-    // icon: <PageIcon />,
+    icon: <PageIcon />,
     subItems: [
       { name: "Blank Page", path: "/blank", pro: false },
       { name: "404 Error", path: "/error-404", pro: false },
@@ -71,8 +65,7 @@ const navItems: NavItem[] = [
 
 const othersItems: NavItem[] = [
   {
-    icon: <></>,
-    // icon: <PieChartIcon />,
+    icon: <PieChartIcon />,
     name: "Charts",
     subItems: [
       { name: "Line Chart", path: "/line-chart", pro: false },
@@ -80,8 +73,7 @@ const othersItems: NavItem[] = [
     ],
   },
   {
-    icon: <></>,
-    // icon: <BoxCubeIcon />,
+    icon: <BoxCubeIcon />,
     name: "UI Elements",
     subItems: [
       { name: "Alerts", path: "/alerts", pro: false },
@@ -93,8 +85,7 @@ const othersItems: NavItem[] = [
     ],
   },
   {
-    icon: <></>,
-    // icon: <PlugInIcon />,
+    icon: <PlugInIcon />,
     name: "Authentication",
     subItems: [
       { name: "Sign In", path: "/signin", pro: false },
@@ -139,7 +130,7 @@ const AppSidebar: React.FC = () => {
               {(isExpanded || isHovered || isMobileOpen) && (
                 <span className={`menu-item-text`}>{nav.name}</span>
               )}
-              {/* {(isExpanded || isHovered || isMobileOpen) && (
+              {(isExpanded || isHovered || isMobileOpen) && (
                 <ChevronDownIcon
                   className={`ml-auto w-5 h-5 transition-transform duration-200  ${
                     openSubmenu?.type === menuType &&
@@ -148,7 +139,7 @@ const AppSidebar: React.FC = () => {
                       : ""
                   }`}
                 />
-              )} */}
+              )}
             </button>
           ) : (
             nav.path && (
@@ -243,7 +234,7 @@ const AppSidebar: React.FC = () => {
   const subMenuRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   // const isActive = (path: string) => path === pathname;
-   const isActive = useCallback((path: string) => path === pathname, [pathname]);
+  const isActive = useCallback((path: string) => path === pathname, [pathname]);
 
   useEffect(() => {
     // Check if the current path matches any submenu item
@@ -269,7 +260,7 @@ const AppSidebar: React.FC = () => {
     if (!submenuMatched) {
       setOpenSubmenu(null);
     }
-  }, [pathname,isActive]);
+  }, [pathname, isActive]);
 
   useEffect(() => {
     // Set the height of the submenu items when the submenu is opened
@@ -359,8 +350,7 @@ const AppSidebar: React.FC = () => {
                 {isExpanded || isHovered || isMobileOpen ? (
                   "Menu"
                 ) : (
-                  // <HorizontaLDots />
-                  <>HorizontaLDots</>
+                  <HorizontaLDots />
                 )}
               </h2>
               {renderMenuItems(navItems, "main")}
@@ -377,8 +367,7 @@ const AppSidebar: React.FC = () => {
                 {isExpanded || isHovered || isMobileOpen ? (
                   "Others"
                 ) : (
-                  // <HorizontaLDots />
-                  <>HorizontaLDots</>
+                  <HorizontaLDots />
                 )}
               </h2>
               {renderMenuItems(othersItems, "others")}
