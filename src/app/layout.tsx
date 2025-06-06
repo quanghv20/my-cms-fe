@@ -1,18 +1,12 @@
-import { Metadata } from "next";
-import { Outfit } from "next/font/google";
-import { ThemeProvider } from "@/context/ThemeContext";
-import { SidebarProvider } from "@/context/SidebarContext";
+import { Outfit } from 'next/font/google';
+import './globals.css';
 
-import "./globals.css";
+import { SidebarProvider } from '@/context/SidebarContext';
+import { ThemeProvider } from '@/context/ThemeContext';
 
 const outfit = Outfit({
   subsets: ["latin"],
 });
-
-export const metadata: Metadata = {
-  title: "JSLife Dashboard",
-  description: "JSLife Dashboard",
-};
 
 export default function RootLayout({
   children,

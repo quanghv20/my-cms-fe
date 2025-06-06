@@ -3,9 +3,7 @@
 import { useSidebar } from "@/context/SidebarContext";
 import AppHeader from "@/layout/AppHeader";
 import AppSidebar from "@/layout/AppSidebar";
-// import AppHeader from "@/layout/AppHeader";
-// import AppSidebar from "@/layout/AppSidebar";
-// import Backdrop from "@/layout/Backdrop";
+import Backdrop from "@/layout/Backdrop";
 import React from "react";
 
 export default function AdminLayout({
@@ -26,7 +24,7 @@ export default function AdminLayout({
     <div className="min-h-screen xl:flex">
       {/* Sidebar and Backdrop */}
       <AppSidebar />
-      {/* <Backdrop /> */}
+      <Backdrop />
       {/* Main Content Area */}
       <div
         className={`flex-1 transition-all  duration-300 ease-in-out ${mainContentMargin}`}
