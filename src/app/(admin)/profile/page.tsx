@@ -1,16 +1,33 @@
+"use client"
+
+import React, { useEffect, useState } from "react";
 import UserAddressCard from "@/components/user-profile/UserAddressCard";
 import UserInfoCard from "@/components/user-profile/UserInfoCard";
 import UserMetaCard from "@/components/user-profile/UserMetaCard";
-import { Metadata } from "next";
-import React from "react";
+import { profileService } from "@/libs/services/profileService";
+import type { Profile } from "@/type/profile.type";
+import { Skeleton } from "@/components/ui/skeleton";
 
-export const metadata: Metadata = {
-  title: "Next.js Profile | TailAdmin - Next.js Dashboard Template",
-  description:
-    "This is Next.js Profile page for TailAdmin - Next.js Tailwind CSS Admin Dashboard Template",
-};
+function ProfileSkeleton() {
+  return (
+    <div className="space-y-6">
+      <Skeleton className="h-6 w-32" />
+      <Skeleton className="h-24 w-full rounded-xl" />
+      <Skeleton className="h-24 w-full rounded-xl" />
+      <Skeleton className="h-24 w-full rounded-xl" />
+    </div>
+  );
+}
 
 export default function Profile() {
+  const [profile, setProfile] = useState<Profile | null>(null);
+
+  useEffect(() => {
+    profileService.getProfile().then(setProfile);
+  }, []);
+
+  if (!profile) return <ProfileSkeleton />;
+
   return (
     <div>
       <div className="rounded-2xl border border-gray-200 bg-white p-5 dark:border-gray-800 dark:bg-white/[0.03] lg:p-6">
