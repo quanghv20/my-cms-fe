@@ -1,23 +1,14 @@
-"use client"
+'use client';
 
-import React, { useEffect, useState } from "react";
-import UserAddressCard from "@/components/user-profile/UserAddressCard";
-import UserInfoCard from "@/components/user-profile/UserInfoCard";
-import UserMetaCard from "@/components/user-profile/UserMetaCard";
-import { profileService } from "@/libs/services/profileService";
-import type { Profile } from "@/type/profile.type";
-import { Skeleton } from "@/components/ui/skeleton";
-
-function ProfileSkeleton() {
-  return (
-    <div className="space-y-6">
-      <Skeleton className="h-6 w-32" />
-      <Skeleton className="h-24 w-full rounded-xl" />
-      <Skeleton className="h-24 w-full rounded-xl" />
-      <Skeleton className="h-24 w-full rounded-xl" />
-    </div>
-  );
-}
+import React, { useEffect, useState } from 'react';
+import UserAddressCard from '@/components/user-profile/UserAddressCard';
+import UserInfoCard from '@/components/user-profile/UserInfoCard';
+import UserMetaCard from '@/components/user-profile/UserMetaCard';
+import { profileService } from '@/libs/services/profileService';
+import type { Profile } from '@/type/profile.type';
+import SkeletonWrapper from '@/components/ui/skeleton';
+import UserMetaCardSkeleton from '@/components/skeletons/profile/UserMetaCardSkeleton';
+import ProfileSkeleton from '@/components/skeletons/profile/ProfileSkeleton';
 
 export default function Profile() {
   const [profile, setProfile] = useState<Profile | null>(null);

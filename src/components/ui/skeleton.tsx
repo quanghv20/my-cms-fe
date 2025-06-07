@@ -1,13 +1,9 @@
-import { cn } from "@/lib/utils"
+import React from 'react';
 
-function Skeleton({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="skeleton"
-      className={cn("bg-gray-300 dark:bg-gray-700 animate-pulse rounded-md", className)}
-      {...props}
-    />
-  )
-}
+const SkeletonWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <div role="status" className="animate-pulse space-y-2">
+    {children}
+  </div>
+);
 
-export { Skeleton }
+export default SkeletonWrapper;

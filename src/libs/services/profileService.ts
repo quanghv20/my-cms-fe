@@ -10,7 +10,7 @@ export const profileService = {
     // const res = await axiosInstance.get('/api/profile');
     // return res.data;
 
-    await wait(1500); // fake timeout: 1.5s
+    await wait(3000); // fake timeout: 1.5s
 
     return {
       id: '1',
