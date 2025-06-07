@@ -26,7 +26,7 @@ const UserMetaCardSkeleton: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-full lg:w-auto h-11 rounded-full bg-gray-200 dark:bg-gray-700" />
+          <div className="w-full lg:w-20 h-11 rounded-full bg-gray-200 dark:bg-gray-700" />
         </div>
       </div>
     </div>

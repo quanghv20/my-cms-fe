@@ -13,7 +13,7 @@ const ProfileSkeleton: React.FC = () => {
           <div className="space-y-6">
             <UserMetaCardSkeleton />
             <UserInfoCardSkeleton />
-            <UserAddressSkeleton />
+            {/* <UserAddressSkeleton /> */}
           </div>
         </div>
       </div>

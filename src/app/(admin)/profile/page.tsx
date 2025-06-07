@@ -5,13 +5,13 @@ import UserAddressCard from '@/components/user-profile/UserAddressCard';
 import UserInfoCard from '@/components/user-profile/UserInfoCard';
 import UserMetaCard from '@/components/user-profile/UserMetaCard';
 import { profileService } from '@/libs/services/profileService';
-import type { Profile } from '@/type/profile.type';
+import type { IProfile } from '@/type/profile.type';
 import SkeletonWrapper from '@/components/ui/skeleton';
 import UserMetaCardSkeleton from '@/components/skeletons/profile/UserMetaCardSkeleton';
 import ProfileSkeleton from '@/components/skeletons/profile/ProfileSkeleton';
 
-export default function Profile() {
-  const [profile, setProfile] = useState<Profile | null>(null);
+export default function ProfilePage() {
+  const [profile, setProfile] = useState<IProfile | null>(null);
 
   useEffect(() => {
     profileService.getProfile().then(setProfile);
@@ -26,9 +26,9 @@ export default function Profile() {
           Profile
         </h3>
         <div className="space-y-6">
-          <UserMetaCard />
-          <UserInfoCard />
-          <UserAddressCard />
+          <UserMetaCard profile={profile} />
+          <UserInfoCard profile={profile}/>
+          {/* <UserAddressCard /> */}
         </div>
       </div>
     </div>

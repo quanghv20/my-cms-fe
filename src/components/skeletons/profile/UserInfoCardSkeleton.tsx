@@ -7,8 +7,8 @@ const UserInfoCardSkeleton: React.FC = () => {
           <div className="h-6 w-40 bg-gray-300 rounded-md dark:bg-gray-700" />
 
           {/* Grid labels and values */}
-          <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-7 2xl:gap-x-32">
-            {Array(5)
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:gap-7 2xl:gap-x-32">
+            {Array(9)
               .fill(0)
               .map((_, idx) => (
                 <div key={idx}>
@@ -21,7 +21,7 @@ const UserInfoCardSkeleton: React.FC = () => {
         </div>
 
         {/* Button placeholder */}
-        <div className="h-11 w-full lg:w-auto rounded-full bg-gray-300 dark:bg-gray-700" />
+        <div className="w-full lg:w-20 h-11 rounded-full bg-gray-200 dark:bg-gray-700" />
       </div>
     </div>
   );
