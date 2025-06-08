@@ -1,34 +1,29 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import { useToast } from '@/context/ToastContext';
 import { profileService } from '@/services/profile.service';
 import UserInfoCard from '@/components/user-profile/UserInfoCard';
 import UserMetaCard from '@/components/user-profile/UserMetaCard';
 import ProfileSkeleton from '@/components/skeletons/profile/ProfileSkeleton';
 import type { IProfile } from '@/type/profile.type';
-import toast from 'react-hot-toast';
 
 export default function ProfilePage() {
   const [profile, setProfile] = useState<IProfile | null>(null);
+  const { showToast } = useToast();
 
   useEffect(() => {
     async function fetchProfile() {
       try {
         const profile = await profileService.getProfile("quanghv20");
-        console.log("profile-----: ", profile);
         setProfile(profile);
       } catch (error: any) {
-        console.log("error-----: ", error)
-        toast.error("Lỗi xảy ra");
+        showToast(error.message, "error")
       }
     }
 
     fetchProfile();
   }, []);
-
-  // useEffect(() => {
-  //   toast.error("Test error toast");
-  // }, []);
 
   if (!profile) return <ProfileSkeleton />;
 
