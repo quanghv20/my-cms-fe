@@ -1,14 +1,11 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import UserAddressCard from '@/components/user-profile/UserAddressCard';
+import { profileService } from '@/services/profile.service';
 import UserInfoCard from '@/components/user-profile/UserInfoCard';
 import UserMetaCard from '@/components/user-profile/UserMetaCard';
-import { profileService } from '@/libs/services/profileService';
-import type { IProfile } from '@/type/profile.type';
-import SkeletonWrapper from '@/components/ui/skeleton';
-import UserMetaCardSkeleton from '@/components/skeletons/profile/UserMetaCardSkeleton';
 import ProfileSkeleton from '@/components/skeletons/profile/ProfileSkeleton';
+import type { IProfile } from '@/type/profile.type';
 
 export default function ProfilePage() {
   const [profile, setProfile] = useState<IProfile | null>(null);

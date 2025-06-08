@@ -1,5 +1,5 @@
 import { IProfile } from '@/type/profile.type';
-import { axiosInstance } from './axiosInstance';
+import { axiosInstance } from '../libs/axiosInstance';
 
 function wait(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));

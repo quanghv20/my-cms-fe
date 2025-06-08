@@ -165,6 +165,7 @@ export default function BasicTableOne() {
                           height={40}
                           src={order.user.image}
                           alt={order.user.name}
+                          priority
                         />
                       </div>
                       <div>
@@ -193,6 +194,7 @@ export default function BasicTableOne() {
                             src={teamImage}
                             alt={`Team member ${index + 1}`}
                             className="w-full"
+                            priority
                           />
                         </div>
                       ))}

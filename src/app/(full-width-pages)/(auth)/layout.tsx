@@ -27,6 +27,7 @@ export default function AuthLayout({
                     height={48}
                     src="./images/logo/auth-logo.svg"
                     alt="Logo"
+                    priority
                   />
                 </Link>
                 <p className="text-center text-gray-400 dark:text-white/60">

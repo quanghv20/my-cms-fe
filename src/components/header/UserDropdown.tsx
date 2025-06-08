@@ -28,6 +28,7 @@ export default function UserDropdown() {
             height={44}
             src="https://res.cloudinary.com/diisbdixw/image/upload/v1748671004/about_otqvfm.jpg"
             alt="User"
+            priority
           />
         </span>
 
