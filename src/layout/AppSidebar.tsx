@@ -17,6 +17,7 @@ import {
   HorizontaLDots,
   UserCircleIcon,
 } from "../icons/index";
+import Logo from "./Logo";
 // import SidebarWidget from "./SidebarWidget";
 
 type NavItem = {
@@ -294,41 +295,15 @@ const AppSidebar: React.FC = () => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div
-        className={`py-8 flex  ${!isExpanded && !isHovered ? "lg:justify-center" : "justify-start"
+        className={`flex items-center ${!isExpanded && !isHovered ? "lg:justify-center" : "justify-start"
           }`}
+          style={{height: 76}}
       >
         <Link href="/">
-          {isExpanded || isHovered || isMobileOpen ? (
-            <>
-              <Image
-                className="dark:hidden"
-                src="/images/logo/logo.svg"
-                alt="Logo"
-                width={150}
-                height={40}
-                priority
-              />
-              <Image
-                className="hidden dark:block"
-                src="/images/logo/logo-dark.svg"
-                alt="Logo"
-                width={150}
-                height={40}
-                priority
-              />
-            </>
-          ) : (
-            <Image
-              src="/images/logo/logo-icon.svg"
-              alt="Logo"
-              width={32}
-              height={32}
-              priority
-            />
-          )}
+          <Logo isExpanded={isExpanded} isHovered={isHovered} isMobileOpen={isMobileOpen} />
         </Link>
       </div>
-      <div className="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar">
+      <div className="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar mt-6">
         <nav className="mb-6">
           <div className="flex flex-col gap-4">
             <div>
