@@ -6,13 +6,29 @@ import UserInfoCard from '@/components/user-profile/UserInfoCard';
 import UserMetaCard from '@/components/user-profile/UserMetaCard';
 import ProfileSkeleton from '@/components/skeletons/profile/ProfileSkeleton';
 import type { IProfile } from '@/type/profile.type';
+import toast from 'react-hot-toast';
 
 export default function ProfilePage() {
   const [profile, setProfile] = useState<IProfile | null>(null);
 
   useEffect(() => {
-    profileService.getProfile().then(setProfile);
+    async function fetchProfile() {
+      try {
+        const profile = await profileService.getProfile("quanghv20");
+        console.log("profile-----: ", profile);
+        setProfile(profile);
+      } catch (error: any) {
+        console.log("error-----: ", error)
+        toast.error("Lỗi xảy ra");
+      }
+    }
+
+    fetchProfile();
   }, []);
+
+  // useEffect(() => {
+  //   toast.error("Test error toast");
+  // }, []);
 
   if (!profile) return <ProfileSkeleton />;
 
@@ -24,7 +40,7 @@ export default function ProfilePage() {
         </h3>
         <div className="space-y-6">
           <UserMetaCard profile={profile} />
-          <UserInfoCard profile={profile}/>
+          <UserInfoCard profile={profile} />
           {/* <UserAddressCard /> */}
         </div>
       </div>

@@ -8,6 +8,8 @@ import Label from '../form/Label';
 import Image from 'next/image';
 import { IProfile } from '@/type/profile.type';
 import { FacebookIcon, GithubIcon, InstagramIcon, LinkedinIcon } from '@/icons';
+import { ISocials } from '@/type/profile.type';
+import AvatarText from '../ui/avatar/AvatarText';
 
 type PropsType = {
   profile: IProfile;
@@ -16,7 +18,7 @@ type PropsType = {
 const socialIcons: Record<string, JSX.Element> = {
   github: <GithubIcon />,
   facebook: <FacebookIcon />,
-  in: <LinkedinIcon />,
+  linkedin: <LinkedinIcon />,
   instagram: <InstagramIcon />,
 };
 
@@ -32,21 +34,29 @@ export default function UserMetaCard({ profile }: PropsType) {
       <div className="p-5 border border-gray-200 rounded-2xl dark:border-gray-800 lg:p-6">
         <div className="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
           <div className="flex flex-col items-center w-full gap-6 xl:flex-row">
-            <div className="w-20 h-20 overflow-hidden border border-gray-200 rounded-full dark:border-gray-800">
-              <Image width={80} height={80} src={profile.avatarUrl} alt="user" priority />
+            <div className="flex items-center justify-center w-20 h-20 overflow-hidden border border-gray-200 rounded-full dark:border-gray-800">
+              {profile.avatarUrl ? (
+                <Image
+                  width={80}
+                  height={80}
+                  src={profile.avatarUrl}
+                  alt="user"
+                  priority
+                />
+              ) : <AvatarText name="Quang" />}
             </div>
             <div className="order-3 xl:order-2">
               <h4 className="mb-2 text-lg font-semibold text-center text-gray-800 dark:text-white/90 xl:text-left">
-                {profile.alias}
+                {profile?.alias}
               </h4>
               <div className="flex flex-col items-center gap-1 text-center xl:flex-row xl:gap-3 xl:text-left">
-                <p className="text-sm text-gray-500 dark:text-gray-400">{profile.bio}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">{profile?.bio}</p>
                 <div className="hidden h-3.5 w-px bg-gray-300 dark:bg-gray-700 xl:block"></div>
-                <p className="text-sm text-gray-500 dark:text-gray-400">{profile.stack}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">{profile?.stack}</p>
               </div>
             </div>
             <div className="flex items-center order-2 gap-2 grow xl:order-3 xl:justify-end">
-              {profile.socials.map((item) => (
+              {profile.socials?.map((item: ISocials) => (
                 <a
                   key={item.icon}
                   href={item.link}

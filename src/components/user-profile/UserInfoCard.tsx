@@ -5,7 +5,7 @@ import { Modal } from '../ui/modal';
 import Button from '../ui/button/Button';
 import Input from '../form/input/InputField';
 import Label from '../form/Label';
-import { IProfile } from '@/type/profile.type';
+import { IProfile, ICompany } from '@/type/profile.type';
 
 type PropsType = {
   profile: IProfile;
@@ -33,7 +33,7 @@ export default function UserInfoCard({ profile }: PropsType) {
                 First Name
               </p>
               <p className="text-sm font-medium text-gray-800 dark:text-white/90">
-                {profile.firstName}
+                {profile?.firstName}
               </p>
             </div>
 
@@ -42,14 +42,14 @@ export default function UserInfoCard({ profile }: PropsType) {
                 Last Name
               </p>
               <p className="text-sm font-medium text-gray-800 dark:text-white/90">
-                {profile.lastName}
+                {profile?.lastName}
               </p>
             </div>
 
             <div>
               <p className="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">Phone</p>
               <p className="text-sm font-medium text-gray-800 dark:text-white/90">
-                {profile.phone}
+                {profile?.phone}
               </p>
             </div>
 
@@ -57,13 +57,13 @@ export default function UserInfoCard({ profile }: PropsType) {
 
             <div>
               <p className="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">Bio</p>
-              <p className="text-sm font-medium text-gray-800 dark:text-white/90">{profile.bio}</p>
+              <p className="text-sm font-medium text-gray-800 dark:text-white/90">{profile?.bio}</p>
             </div>
 
             <div>
               <p className="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">Stack</p>
               <p className="text-sm font-medium text-gray-800 dark:text-white/90">
-                {profile.stack}
+                {profile?.stack}
               </p>
             </div>
 
@@ -72,7 +72,7 @@ export default function UserInfoCard({ profile }: PropsType) {
                 Email address
               </p>
               <p className="text-sm font-medium text-gray-800 dark:text-white/90">
-                {profile.email}
+                {profile?.email}
               </p>
             </div>
 
@@ -81,7 +81,7 @@ export default function UserInfoCard({ profile }: PropsType) {
                 Address
               </p>
               <p className="text-sm font-medium text-gray-800 dark:text-white/90">
-                {profile.address}
+                {profile?.address}
               </p>
             </div>
 
@@ -91,14 +91,14 @@ export default function UserInfoCard({ profile }: PropsType) {
                 Education
               </p>
               <p className="text-sm font-medium text-gray-800 dark:text-white/90">
-                {profile.education.name}
+                {profile.education?.name}
               </p>
             </div>
 
             <div>
               <p className="mb-2 text-xs leading-normal text-gray-500 dark:text-gray-400">Work</p>
               <p className="text-sm font-medium text-gray-800 dark:text-white/90">
-                {profile.companies.map((c) => c.name).join(', ')}
+                {profile.companies?.map((company: ICompany) => company.name).join(', ')}
               </p>
             </div>
           </div>
