@@ -55,6 +55,7 @@ import GithubIcon from './github.svg';
 import FacebookIcon from './facebook.svg';
 import LinkedinIcon from './linkedin.svg';
 import InstagramIcon from './instagram.svg';
+import UsersGroupIcon from './users-group.svg';
 
 export {
   DownloadIcon,
@@ -114,4 +115,5 @@ export {
   FacebookIcon,
   LinkedinIcon,
   InstagramIcon,
+  UsersGroupIcon
 };

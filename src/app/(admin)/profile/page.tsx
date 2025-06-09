@@ -15,7 +15,8 @@ export default function ProfilePage() {
   useEffect(() => {
     async function fetchProfile() {
       try {
-        const profile = await profileService.getProfile("quanghv20");
+        const profile = await profileService.getProfile("quanghv");
+        profile.avatarUrl = "https://res.cloudinary.com/diisbdixw/image/upload/v1748671004/about_otqvfm.jpg";
         setProfile(profile);
       } catch (error: any) {
         showToast(error.message, "error")

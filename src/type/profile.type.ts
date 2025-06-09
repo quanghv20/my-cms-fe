@@ -1,4 +1,5 @@
 export interface IEducation {
+  _id: string;
   logo: string;
   name: string;
   major: string;
@@ -10,6 +11,7 @@ export interface IEducation {
 }
 
 export interface ICompany {
+  _id: string;
   logo: string;
   name: string;
   fromDate: string;
@@ -19,11 +21,13 @@ export interface ICompany {
 }
 
 export interface ISocials {
+  _id: string;
+  name: string;
   icon: string;
   link: string;
 }
 export interface IProfile {
-  id: string;
+  _id: string;
   alias: string;
   firstName: string;
   lastName: string;

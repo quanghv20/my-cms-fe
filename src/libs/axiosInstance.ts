@@ -1,5 +1,4 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-import toast from 'react-hot-toast';
 import { configService } from '@/libs/configService';
 
 export const getAccessToken = (): string | null => {

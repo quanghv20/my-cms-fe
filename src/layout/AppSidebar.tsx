@@ -16,6 +16,7 @@ import {
   ChevronDownIcon,
   HorizontaLDots,
   UserCircleIcon,
+  UsersGroupIcon,
 } from "../icons/index";
 import Logo from "./Logo";
 // import SidebarWidget from "./SidebarWidget";
@@ -32,6 +33,11 @@ const navItems: NavItem[] = [
     icon: <GridIcon />,
     name: "Dashboard",
     subItems: [{ name: "Ecommerce", path: "/", pro: false }],
+  },
+  {
+    icon: <UsersGroupIcon />,
+    name: "User Management",
+    path: "/user-management"
   },
   {
     icon: <CalenderIcon />,
@@ -297,7 +303,7 @@ const AppSidebar: React.FC = () => {
       <div
         className={`flex items-center ${!isExpanded && !isHovered ? "lg:justify-center" : "justify-start"
           }`}
-          style={{height: 76}}
+        style={{ height: 76 }}
       >
         <Link href="/">
           <Logo isExpanded={isExpanded} isHovered={isHovered} isMobileOpen={isMobileOpen} />
