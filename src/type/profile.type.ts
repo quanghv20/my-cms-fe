@@ -20,7 +20,7 @@ export interface ICompany {
   description?: string;
 }
 
-export interface ISocials {
+export interface ISocial {
   _id: string;
   name: string;
   icon: string;
@@ -39,5 +39,5 @@ export interface IProfile {
   stack: string;
   education: IEducation;
   companies: ICompany[];
-  socials: ISocials[];
+  socials: ISocial[];
 }
