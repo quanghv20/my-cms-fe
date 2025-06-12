@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef, useEffect } from "react";
+import Button from "../button/Button";
 
 interface ModalProps {
   isOpen: boolean;
@@ -8,6 +9,7 @@ interface ModalProps {
   children: React.ReactNode;
   showCloseButton?: boolean; // New prop to control close button visibility
   isFullscreen?: boolean; // Default to false for backwards compatibility
+  header?: React.ReactNode; // THÊM props mới cho custom header
 }
 
 export const Modal: React.FC<ModalProps> = ({
@@ -16,7 +18,7 @@ export const Modal: React.FC<ModalProps> = ({
   children,
   className,
   showCloseButton = true, // Default to true for backwards compatibility
-  isFullscreen = false,
+  header
 }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -50,22 +52,15 @@ export const Modal: React.FC<ModalProps> = ({
 
   if (!isOpen) return null;
 
-  const contentClasses = isFullscreen
-    ? "w-full h-full"
-    : "relative w-full rounded-3xl bg-white dark:bg-gray-900";
-
   return (
-    <div className="fixed inset-0 flex items-center justify-center overflow-y-auto modal z-99999">
-      {!isFullscreen && (
-        <div
-          // className="fixed inset-0 h-full w-full bg-gray-400/50 backdrop-blur-[32px]"
-          className="fixed inset-0 h-full w-full bg-gray-400/50"
-          onClick={onClose}
-        ></div>
-      )}
+    <div className="fixed inset-0 flex items-center justify-center modal z-99999">
+      <div
+        className="fixed inset-0 h-full w-full bg-gray-400/50"
+        onClick={onClose}
+      ></div>
       <div
         ref={modalRef}
-        className={`${contentClasses}  ${className}`}
+        className={`relative w-full rounded-3xl bg-white dark:bg-gray-900 ${className}`}
         onClick={(e) => e.stopPropagation()}
       >
         {showCloseButton && (
@@ -89,7 +84,29 @@ export const Modal: React.FC<ModalProps> = ({
             </svg>
           </button>
         )}
-        <div>{children}</div>
+        <div
+          className="no-scrollbar relative w-full overflow-y-auto max-w-[1000px] rounded-3xl bg-white p-2 dark:bg-gray-900 lg:p-8"
+          style={{ maxHeight: 600 }}>
+          <div>{header}</div>
+        </div>
+
+        <div
+          className="no-scrollbar relative w-full overflow-y-auto max-w-[1000px] rounded-3xl bg-white p-2 dark:bg-gray-900 lg:p-11"
+          style={{ maxHeight: 600 }}>
+          <div>{header}</div>
+
+          {/* <div className="overflow-y-auto">{children}</div> */}
+
+          <div className="flex items-center gap-3 px-2 mt-6 lg:justify-end">
+            <Button size="sm" variant="outline" onClick={onClose}>
+              Close
+            </Button>
+            <Button size="sm" type="submit">
+              Save Changes
+            </Button>
+          </div>
+        </div>
+        {/* <div>{children}</div> */}
       </div>
     </div>
   );
