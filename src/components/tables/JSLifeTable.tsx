@@ -37,7 +37,7 @@ export function JSLifeTable<T>({ columns, dataSource, rowKey, scroll }: CustomTa
                                     <TableCell
                                         key={col.key}
                                         isHeader
-                                        className={`px-5 py-3 font-medium text-gray-500 text-start text-theme-xs dark:text-gray-400 ${col.align === "center"
+                                        className={`px-5 py-3 font-medium text-gray-500 text-start text-theme-base dark:text-gray-400 ${col.align === "center"
                                             ? "text-center"
                                             : col.align === "right"
                                                 ? "text-right"

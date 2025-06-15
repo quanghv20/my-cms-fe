@@ -121,34 +121,6 @@ export default function SocialsTable() {
                         >
                             <CircleMinusIcon /> Delete
                         </JSLifeButton>
-                        <JSLifeButton
-                            onClick={() => handleDeleteSocial(record.id)}
-                            size="sm"
-                            variant="green"
-                        >
-                            <CircleMinusIcon /> Delete
-                        </JSLifeButton>
-                        <JSLifeButton
-                            onClick={() => handleDeleteSocial(record.id)}
-                            size="sm"
-                            variant="blue"
-                        >
-                            <CircleMinusIcon /> Delete
-                        </JSLifeButton>
-                        <JSLifeButton
-                            onClick={() => handleDeleteSocial(record.id)}
-                            size="sm"
-                            variant="outline"
-                        >
-                            <CircleMinusIcon /> Delete
-                        </JSLifeButton>
-                        <JSLifeButton
-                            onClick={() => handleDeleteSocial(record.id)}
-                            size="sm"
-                            variant="primary"
-                        >
-                            <CircleMinusIcon /> Delete
-                        </JSLifeButton>
                     </>
 
                 );
@@ -161,13 +133,13 @@ export default function SocialsTable() {
             <JSLifeTable columns={columns} dataSource={data} rowKey="id" scroll={{ x: "1000px" }} />
 
             <div className="flex justify-end">
-                <Button onClick={(e) => {
+                <JSLifeButton variant="blue" onClick={(e) => {
                     // e.stopPropagation();
                     e.preventDefault();
                     handleAddSocial();
                 }} className="bg-blue-600 text-white hover:bg-blue-700">
                     <CirclePlusIcon /> Add Social
-                </Button>
+                </JSLifeButton>
             </div>
         </div>
     );
