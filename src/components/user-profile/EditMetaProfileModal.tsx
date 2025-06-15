@@ -85,6 +85,11 @@ export default function EditMetaProfileModal({ isOpen, onClose, profile }: Props
                 <form className="flex flex-col">
                     <div className="custom-scrollbar h-[450px] overflow-y-auto px-2 pb-3">
                         <SocialsTable />
+                        <div className="flex justify-end">
+                            <Button onClick={() => { }} className="bg-blue-600 text-white hover:bg-blue-700">
+                                + Thêm Social 1010
+                            </Button>
+                        </div>
                     </div>
                     <div className="flex items-center gap-3 px-2 mt-6 lg:justify-end">
                         <Button size="sm" variant="outline" onClick={onClose}>

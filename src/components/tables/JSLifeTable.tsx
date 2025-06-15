@@ -14,13 +14,22 @@ interface CustomTableProps<T> {
     columns: Column<T>[];
     dataSource: T[];
     rowKey: string | ((record: T) => React.Key);
+    scroll?: {
+        x?: string | number;
+    };
 }
 
-export function JSLifeTable<T>({ columns, dataSource, rowKey }: CustomTableProps<T>) {
+export function JSLifeTable<T>({ columns, dataSource, rowKey, scroll }: CustomTableProps<T>) {
+    const minWidthStyle = scroll?.x
+        ? { minWidth: typeof scroll.x === "number" ? `${scroll.x}px` : scroll.x }
+        : {};
+
     return (
         <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-white/[0.05] dark:bg-white/[0.03]">
-            <div className="max-w-full">
-                <div className="min-w-[1024px]">
+            {/* <div className="max-w-full">
+                <div className="min-w-[1024px]"> */}
+            <div className="w-full overflow-x-auto">
+                <div style={minWidthStyle}>
                     <Table>
                         <TableHeader className="border-b border-gray-100 dark:border-white/[0.05]">
                             <TableRow>
