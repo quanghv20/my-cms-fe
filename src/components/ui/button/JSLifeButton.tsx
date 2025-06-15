@@ -22,7 +22,7 @@ interface ButtonProps {
     onClick?: (e?: any) => void;
 }
 
-const Button: React.FC<ButtonProps> = ({
+const JSLifeButton: React.FC<ButtonProps> = ({
     children,
     size = "md",
     variant = "primary",
@@ -35,7 +35,7 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
     const sizeClasses = {
         sm: "px-4 py-3 text-sm",
-        md: "px-5 py-2.5 text-sm",
+        md: "px-5 py-3.5 text-sm",
     };
 
     const variantClasses: Record<string, string> = {
@@ -78,4 +78,4 @@ const Button: React.FC<ButtonProps> = ({
     );
 };
 
-export default Button;
+export default JSLifeButton;
