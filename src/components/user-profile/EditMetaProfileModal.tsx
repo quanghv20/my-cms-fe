@@ -5,6 +5,9 @@ import Label from '../form/Label';
 import BasicTableOne from '../tables/BasicTableOne';
 import Button from '../ui/button/Button';
 import SocialsTable from './SocialsTable';
+import { JSLifeModal } from '../ui/modal/JSModal';
+import JSLifeButton from '../ui/button/JSLifeButton';
+import { CirclePlusIcon } from '@/icons';
 
 type PropsType = {
     isOpen: boolean;
@@ -17,9 +20,9 @@ export default function EditMetaProfileModal({ isOpen, onClose, profile }: Props
     const [fileSelected, setFileSelected] = useState(false);
 
     return (
-        <Modal isOpen={isOpen} onClose={onClose} className="max-w-[1140px] m-4">
+        <JSLifeModal isOpen={isOpen} onClose={onClose} className="max-w-[1140px] m-4">
             <div className="no-scrollbar relative w-full max-w-[1140px] overflow-y-auto rounded-3xl bg-white p-4 dark:bg-gray-900 lg:p-11">
-                <div className="px-2 pr-14">
+                <div className="px-2">
                     <h4 className="mb-2 text-2xl font-semibold text-gray-800 dark:text-white/90">
                         Edit Profile
                     </h4>
@@ -76,10 +79,19 @@ export default function EditMetaProfileModal({ isOpen, onClose, profile }: Props
                             </div>
                         </div>
                     </div>
-                    <div className="mt-7">
+                    <div className="flex justify-between mt-8">
                         <h5 className="mb-5 text-lg font-medium text-gray-800 dark:text-white/90 lg:mb-6">
                             Social Links
                         </h5>
+                        <div>
+                            <JSLifeButton size="sm" variant="blue" onClick={(e) => {
+                                // e.stopPropagation();
+                                e.preventDefault();
+                                // handleAddSocial();
+                            }} className="bg-blue-600 text-white hover:bg-blue-700">
+                                <CirclePlusIcon /> Add Social
+                            </JSLifeButton>
+                        </div>
                     </div>
                 </div>
                 <form className="flex flex-col">
@@ -87,15 +99,15 @@ export default function EditMetaProfileModal({ isOpen, onClose, profile }: Props
                         <SocialsTable />
                     </div>
                     <div className="flex items-center gap-3 px-2 mt-6 lg:justify-end">
-                        <Button size="sm" variant="outline" onClick={onClose}>
+                        <JSLifeButton size="md" variant="outline" onClick={onClose}>
                             Close
-                        </Button>
-                        <Button size="sm" onClick={() => { }}>
+                        </JSLifeButton>
+                        <JSLifeButton size="md" onClick={() => { }}>
                             Save Changes
-                        </Button>
+                        </JSLifeButton>
                     </div>
                 </form>
             </div>
-        </Modal>
+        </JSLifeModal>
     )
 }

@@ -34,8 +34,8 @@ const JSLifeButton: React.FC<ButtonProps> = ({
     onClick,
 }) => {
     const sizeClasses = {
-        sm: "px-4 py-3 text-sm",
-        md: "px-5 py-3.5 text-sm",
+        sm: "px-4 py-1.5 text-sm",
+        md: "px-5 py-3 text-sm",
     };
 
     const variantClasses: Record<string, string> = {

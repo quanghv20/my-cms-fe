@@ -8,6 +8,7 @@ import Button from "../ui/button/Button";
 import Input from "../form/input/InputField";
 import JSLifeButton from "../ui/button/JSLifeButton";
 import { CircleMinusIcon, CirclePlusIcon, PlusIcon } from "@/icons";
+import JSLifeInput from "../form/input/JSLifeInput";
 
 interface Order {
     id: number;
@@ -91,21 +92,21 @@ export default function SocialsTable() {
             title: "Icon",
             key: "icon",
             render: (_: any, record: Order) => (
-                <Input type="text" placeholder="Social icon" />
+                <JSLifeInput type="text" placeholder="Social icon" />
             ),
         },
         {
             title: "Name",
             key: "name",
             render: (_: any, record: Order) => (
-                <Input type="text" placeholder="Social name" />
+                <JSLifeInput type="text" placeholder="Social name" />
             ),
         },
         {
             title: "Link",
             key: "link",
             render: (_: any, record: Order) => (
-                <Input type="text" placeholder="Social link" />
+                <JSLifeInput type="text" placeholder="Social link" />
             ),
         },
         {
@@ -129,18 +130,8 @@ export default function SocialsTable() {
     ];
 
     return (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 mt-4">
             <JSLifeTable columns={columns} dataSource={data} rowKey="id" scroll={{ x: "1000px" }} />
-
-            <div className="flex justify-end">
-                <JSLifeButton variant="blue" onClick={(e) => {
-                    // e.stopPropagation();
-                    e.preventDefault();
-                    handleAddSocial();
-                }} className="bg-blue-600 text-white hover:bg-blue-700">
-                    <CirclePlusIcon /> Add Social
-                </JSLifeButton>
-            </div>
         </div>
     );
 }
